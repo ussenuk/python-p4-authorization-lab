@@ -110,7 +110,7 @@ class MemberOnlyArticle(Resource):
         if not session['user_id']:
             return {'error': 'Unauthorized'}, 401
 
-        article = Article.query.filter(Article.id == True).first()
+        article = Article.query.filter(Article.id == id).first()
         article_json = article.to_dict()
         return make_response(article_json, 200)
 
